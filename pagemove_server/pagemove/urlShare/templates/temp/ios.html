@@ -1,0 +1,96 @@
+<head>
+<link href="{{ STATIC_URL }}css/style.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="{{ STATIC_URL }}/img/icon.png">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<title>PAGEMOVE</title>
+
+<script>
+$(document).ready(function() {
+
+// For use within normal web clients
+var isiPad = navigator.userAgent.match(/iPad/i) != null;
+var isiPhone = navigator.userAgent.match(/iPhone/i) != null;
+var isiPod = navigator.userAgent.match(/iPod/i) != null;
+
+// For use within iPad developer UIWebView
+// Thanks to Andrew Hedges!
+var ua = navigator.userAgent;
+var isiPad = /iPad/i.test(ua) || /iPhone OS 3_1_2/i.test(ua) || /iPhone OS 3_2_2/i.test(ua);
+var isiPhone = /iPhone/i.test(ua) || /iPhone OS 3_1_2/i.test(ua) || /iPhone OS 3_2_2/i.test(ua);
+var isiPod = /iPod/i.test(ua) || /iPhone OS 3_1_2/i.test(ua) || /iPhone OS 3_2_2/i.test(ua);
+
+if(isiPad || isiPhone || isiPod){
+	var cookie = getCookie("urlShareiOS");
+
+	if(cookie != null){
+		//start app for the app is bookmarkt
+		document.location.href = "pagemove:";
+	}else {
+		setCookie("urlShareiOS", "cookie set to launch iOS App", 365);
+		//set cookie and tel to bookmark to fast launch from safari
+		$('#bannerText').html("<i>Add this page to the bookmarkbar for launching of the app from safari!</i>");
+	}
+}
+});
+
+function setCookie(c_name,value,exdays)
+{
+	var exdate=new Date();
+	exdate.setDate(exdate.getDate() + exdays);
+	var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+	document.cookie=c_name + "=" + c_value;
+}
+
+function getCookie(c_name)
+{
+	var i,x,y,ARRcookies=document.cookie.split(";");
+
+	for (i=0;i<ARRcookies.length;i++){
+  		x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+  		y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+  		x=x.replace(/^\s+|\s+$/g,"");
+  		if (x==c_name){
+   		    return unescape(y);
+    	}
+  	}
+}
+
+
+</script>
+</head>
+<div id="container">
+	<div id="logo">
+		<img height="150" width="150" src="{{ STATIC_URL }}/img/icon.png" alt="logo missing...">
+		<br>
+		<br>
+		<br>
+		<div class="title">PAGEMOVE</div>
+	</div>
+	<div id="content">
+		<br>
+		<br>
+		<br>
+		<p style="font-size: 1.35em;">
+			1. SHARE THIS SITE TO YOUR IPAD OR IPHONE
+			<br>
+			<br>
+			2. ADD IT TO YOUR BOOKMARKS BAR
+			<br>
+			<br>
+			3. COPY THE LINK YOU WHANT TO SHARE
+			<br>
+			<br>
+			4. HIT THE BOOKMARK IN THE BOOKMARKS BAR
+			<br>
+			<br>
+			5. SHARE THE PAGE TO THE BROWSER
+			<br>
+			<br>
+
+			<a href="javascript:(function(){tid='{{twitter_id}}';_pagemove_script=document.createElement('SCRIPT');_pagemove_script.type='text/javascript';_pagemove_script.src='http://pagemove.se/static/js/bookmarklet.js?';document.getElementsByTagName('head')[0].appendChild(_pagemove_script);})();">PAGE MOVE</a>
+		<div id="footer">
+		</div>
+	</div>
+
+</div>
+<body>

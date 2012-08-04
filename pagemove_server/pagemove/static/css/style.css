@@ -1,0 +1,596 @@
+.memberfield {
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+-khtml-border-radius: 3px;
+border-radius: 3px;
+background-color: #F9F9F9;
+color: #666;
+font-family: arial;
+font-size: 13px;
+padding: 12px 15px 15px;
+border: 1px solid #CCC;
+width: 200px;
+margin-bottom: 4px;
+border-image: initial;
+}
+
+.submit {
+    padding-top:5px;
+}
+
+img.center {
+   position:absolute;
+   top:50%;
+   left:50%;
+   margin-left:-105px;
+   margin-top:-10px;
+   display: none;
+   opacity: 1.0;
+   z-index: 1002;
+}
+
+.overlay {
+    position:fixed;
+    top:0px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    background-color: rgb(255, 255, 255);
+    opacity: 0.8; display: block;
+    z-index: 1001;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.overlayShow {
+    position:fixed;
+    top:0px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    background-color: #B8B8B8;
+    opacity: 0.9;
+    display: block;
+    z-index: 1001;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.textCenter{
+   position:absolute;
+   top:50%;
+   left:23%;
+   margin-top:-10px;
+   opacity: 1.0;
+   z-index: 1002;
+   font-size: 67px;
+   letter-spacing: 20px;
+}
+
+body.bp {
+    text-align: center;
+}
+* html body.bp legend {
+    margin: 0 -8px 16px 0;
+    padding: 0;
+}
+html > body.bp p code {
+}
+body.bp .container {
+    text-align: left;
+}
+body.bp sup {
+    vertical-align: text-top;
+}
+body.bp sub {
+    vertical-align: text-bottom;
+}
+body.bp hr {
+    margin: -8px auto 11px;
+}
+body.bp img {
+}
+body.bp fieldset {
+    padding-top: 0;
+}
+body.bp legend {
+    margin-bottom: 1em;
+    margin-left: -0.5em;
+    margin-top: -0.2em;
+}
+body.bp fieldset, body.bp #IE8#HACK {
+    padding-top: 1.4em;
+}
+body.bp legend, body.bp #IE8#HACK {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+body.bp textarea {
+    overflow: auto;
+}
+body.bp label {
+    position: relative;
+    top: -0.25em;
+}
+body.bp input.text {
+    background-color: white;
+    border: 1px solid #BBBBBB;
+    margin: 0.5em 0;
+}
+body.bp input.text:focus {
+    border: 1px solid #666666;
+}
+body.bp input.title {
+    background-color: white;
+    border: 1px solid #BBBBBB;
+    margin: 0.5em 0;
+}
+body.bp input.title:focus {
+    border: 1px solid #666666;
+}
+body.bp input.checkbox {
+    position: relative;
+    top: 0.25em;
+}
+body.bp input.radio {
+    position: relative;
+    top: 0.25em;
+}
+body.bp input.button {
+    position: relative;
+    top: 0.25em;
+}
+body.bp textarea {
+    margin: 0.5em 0;
+}
+body.bp select {
+    margin: 0.5em 0;
+}
+body.bp button {
+    position: relative;
+    top: 0.25em;
+}
+body.bp {
+    background: none repeat scroll 0 0 transparent;
+    color: black;
+    font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
+    font-size: 10pt;
+    line-height: 1.5;
+}
+body.bp .container {
+    background: none repeat scroll 0 0 transparent;
+}
+body.bp hr {
+    background: none repeat scroll 0 0 #CCCCCC;
+    border: medium none;
+    color: #CCCCCC;
+    height: 2px;
+    margin: 2em 0;
+    padding: 0;
+    width: 100%;
+}
+body.bp hr.space {
+    background: none repeat scroll 0 0 white;
+    color: white;
+}
+body.bp h1, body.bp h2, body.bp h3, body.bp h4, body.bp h5, body.bp h6 {
+    font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
+}
+body.bp code {
+    font-family: "andale mono","lucida console",monospace;
+    font-size: 0.9em;
+}
+body.bp a img {
+    border: medium none;
+}
+body.bp a:link, body.bp a:visited {
+    background: none repeat scroll 0 0 transparent;
+    font-weight: 700;
+    text-decoration: underline;
+}
+body.bp p img.top {
+    margin-top: 0;
+}
+body.bp blockquote {
+    font-size: 0.9em;
+    font-style: italic;
+    margin: 1.5em;
+    padding: 1em;
+}
+body.bp .small {
+    font-size: 0.9em;
+}
+body.bp .large {
+    font-size: 1.1em;
+}
+body.bp .quiet {
+    color: #999999;
+}
+body.bp .hide {
+    display: none;
+}
+html {
+    border: 0 none;
+    margin: 0;
+    padding: 0;
+}
+.bp-reset-element, body, h1, h2, h3, h4, h5, h6, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, blockquote, q, th, td, caption, table, div, span, object, iframe, p, pre, a, abbr, acronym, address, code, del, dfn, em, img, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption, tbody, tfoot, thead, tr {
+    border: 0 none;
+    font-family: inherit;
+    font-size: 100%;
+    font-style: inherit;
+    font-weight: inherit;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+    display: block;
+}
+blockquote, q {
+    quotes: "" "";
+}
+blockquote:before, blockquote:after, q:before, q:after {
+    content: "";
+}
+th, td, caption {
+    float: none !important;
+    font-weight: normal;
+    text-align: left;
+    vertical-align: middle;
+}
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    vertical-align: middle;
+}
+a img {
+    border: medium none;
+}
+body {
+    color: #231F20;
+    font-family: "helvetica neue",helvetica,sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 1.5em;
+}
+p {
+    margin-bottom: 1em;
+}
+h2 {
+    font-size: 1.25em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    margin-top: 1.25em;
+}
+em {
+    font-style: italic;
+}
+dt {
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 1.25em;
+}
+dd {
+    margin-bottom: 1em;
+}
+#container {
+    margin: 2em auto 0;
+    width: 500px;
+}
+#banner {
+    /*background-color: #2661c5;*/
+    font-size: 1.5em;
+    padding: 0.5em;
+    text-align: left;
+}
+#banner2 {
+    /*background-color: #4496e1;*/
+    font-size: 1em;
+    padding: 0.5em;
+    text-align: center;
+}
+nav {
+    border-bottom: 3px solid black;
+    font-size: 0.75em;
+    line-height: 1em;
+    overflow: hidden;
+    padding: 0.75em 0;
+    width: 100%;
+}
+nav ul {
+    list-style: none outside none;
+    text-align: center;
+}
+nav li {
+    border-right: 1px solid black;
+    display: inline;
+    margin-right: 6px;
+    padding-right: 8px;
+}
+nav li.last {
+    border: medium none;
+}
+#content {
+    font-size: 0.75em;
+    line-height: 1.5em;
+    padding: 0;
+}
+#footer {
+    border-top: 3px solid black;
+    color: #555555;
+    font-size: 0.75em;
+    line-height: 1.5em;
+    margin-bottom: 1em;
+    margin-top: 4em;
+    padding: 0.75em 0;
+    text-align: center;
+}
+#footer img {
+    vertical-align: top;
+}
+#logo {
+    text-align: center;
+}
+
+ul.team {
+    list-style-type: none;
+}
+ul.team img, ul.team p {
+    float: left;
+}
+ul.team img {
+    margin-top: 0.25em;
+}
+ul.team p {
+    padding: 0 10px;
+    width: 340px;
+}
+ul.team li {
+    margin: 0.5em 0;
+}
+.ss-q-long {
+    width: 500px;
+}
+.ss-q-help {
+    color: #666666;
+    font-style: italic;
+}
+
+.title {
+    font-size: 67px;
+    letter-spacing: 20px;
+}
+
+
+#top{
+
+text-shadow: 0 1px 0 #777777; 
+font-weight:bold; 
+padding:20px; 
+color:#000000; 
+font-size:28px; 
+font-family:helvetica, arial; 
+text-align:center;
+
+/* fallback */ 
+background-color: #222222; 
+
+/* Safari 4-5, Chrome 1-9 */ 
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#222222), to(#555555)); 
+/* Safari 5.1, Chrome 10+ */ 
+background: -webkit-linear-gradient(top, #555555, #222222); 
+/* Firefox 3.6+ */ 
+background: -moz-linear-gradient(top, #555555, #222222); 
+/* IE 10 */ 
+background: -ms-linear-gradient(top, #555555, #222222); 
+/* Opera 11.10+ */ 
+background: -o-linear-gradient(top, #555555, #222222);
+
+}
+
+#bottom{
+
+text-shadow: 0 1px 0 #000000; 
+font-weight:normal; 
+padding:50px 20px; 
+color:#ffffff; 
+font-size:16px; 
+font-family:helvetica, arial; 
+text-align:center;
+
+/* fallback */ 
+background-color: #222222; 
+
+/* Safari 4-5, Chrome 1-9 */ 
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#555555), to(#222222)); 
+/* Safari 5.1, Chrome 10+ */ 
+background: -webkit-linear-gradient(top, #222222, #555555); 
+/* Firefox 3.6+ */ 
+background: -moz-linear-gradient(top, #222222, #555555); 
+/* IE 10 */ 
+background: -ms-linear-gradient(top, #222222, #555555); 
+/* Opera 11.10+ */ 
+background: -o-linear-gradient(top, #222222, #555555);
+
+}
+
+
+
+#green {
+
+text-shadow: 0 1px 0 #4d9e4d; 
+font-weight:bold; 
+padding:40px; 
+color:#ffffff; 
+font-size:68px;
+margin: 0 auto;
+width: 520px; 
+font-family:helvetica, arial; 
+text-align:center;
+/* fallback */ 
+background-color: #a4d29f; 
+/* Safari 4-5, Chrome 1-9 */ 
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#a4d29f), to(#7ad27a)); 
+/* Safari 5.1, Chrome 10+ */ 
+background: -webkit-linear-gradient(top, #7ad27a, #a4d29f); 
+/* Firefox 3.6+ */ 
+background: -moz-linear-gradient(top, #7ad27a, #a4d29f); 
+/* IE 10 */ 
+background: -ms-linear-gradient(top, #7ad27a, #a4d29f); 
+/* Opera 11.10+ */ 
+background: -o-linear-gradient(top, #7ad27a, #a4d29f);
+-webkit-border-radius: 20px;
+-moz-border-radius: 20px;
+border-radius: 20px;
+border: 1px solid #53a653;
+}
+
+#whitewrapper{
+background: #fff;
+padding: 40px 0 10px;
+
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+
+}
+
+
+#green a{
+color: #fff;
+text-decoration: none;
+}
+
+
+#green a:hover{
+color: #fff;
+}
+
+
+#gray{
+
+text-shadow: 0 1px 0 #FFFFFF; 
+font-weight:normal; 
+padding:30px 30px; 
+color:#111111; 
+font-size:21px;
+font-family:helvetica, arial; 
+text-align:left;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+
+
+
+/* fallback */ 
+background-color: #f8f8f8; 
+
+/* Safari 4-5, Chrome 1-9 */ 
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f9f9f9), to(#f9f9f9)); 
+/* Safari 5.1, Chrome 10+ */ 
+background: -webkit-linear-gradient(top, #fff, #f9f9f9); 
+/* Firefox 3.6+ */ 
+background: -moz-linear-gradient(top, #f9f9f9, #f9f9f9); 
+/* IE 10 */ 
+background: -ms-linear-gradient(top, #f9f9f9, #f9f9f9); 
+/* Opera 11.10+ */ 
+background: -o-linear-gradient(top, #f9f9f9, #f9f9f9);
+border-bottom: 1px solid #eee;
+border-top: 1px solid #fff;
+
+
+}
+
+#gray a{
+color: #333;
+text-decoration: none;
+
+}
+
+
+
+#text{
+padding: 20px;
+color: #111;
+text-align: left;
+font-size:34px; 
+font-weight: normal;
+font-family:"Comic Sans MS", "Marker Felt"; 
+ background-color: #FAFEE0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    padding: 30px 20px;
+    width: 540px;
+    margin: 40px auto;
+    text-shadow: 0 1px 0 #FFFFFF; 
+
+    -webkit-transform: rotate(-1deg); 
+-moz-transform: rotate(-1deg);  
+}
+
+
+.sendlink{
+text-shadow: 0 1px 0 #ffffff; 
+font-weight:normal; 
+padding:20px 40px; 
+color:#555555; 
+font-size:28px; 
+font-family:helvetica, arial; 
+text-align:left;
+line-height: 40px;
+width: 400px;
+float: left;
+margin-top: 30px;
+margin-bottom: 30px;
+margin-left: 20px;
+-webkit-border-radius: 90px;
+-moz-border-radius: 90px;
+border-radius: 90px;
+border:1px solid #ccc;
+
+/* fallback */ 
+background-color: #f8f8f8; 
+
+/* Safari 4-5, Chrome 1-9 */ 
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eeeeee), to(#e8e8e8)); 
+/* Safari 5.1, Chrome 10+ */ 
+background: -webkit-linear-gradient(top, #eeeeee, #f9f9f9); 
+/* Firefox 3.6+ */ 
+background: -moz-linear-gradient(top, #eeeeee, #f9f9f9); 
+/* IE 10 */ 
+background: -ms-linear-gradient(top, #eeeeee, #f9f9f9); 
+/* Opera 11.10+ */ 
+background: -o-linear-gradient(top, #eeeeee, #f9f9f9);
+}
+
+#sendlinkbtn{
+text-shadow: 0 1px 1px #89d5ee; 
+font-weight:bold; 
+padding:20px;
+color:#254a7d; 
+font-size:33px; 
+font-family:helvetica, arial; 
+text-align:center;
+line-height: 40px;
+border:1px solid #0056cc;
+width: 180px;
+margin-top: 30px;
+margin-bottom: 30px;
+margin-right: 20px;
+float: right;
+
+-webkit-border-radius: 90px;
+-moz-border-radius: 90px;
+border-radius: 90px;
+
+/* fallback */ 
+background-color: #0083cc; 
+
+/* Safari 4-5, Chrome 1-9 */ 
+background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#0083cc), to(#3eb8e1)); 
+/* Safari 5.1, Chrome 10+ */ 
+background: -webkit-linear-gradient(top, #3eb8e1, #0083cc); 
+/* Firefox 3.6+ */ 
+background: -moz-linear-gradient(top,#3eb8e1, #0083cc);
+/* IE 10 */ 
+background: -ms-linear-gradient(top, #3eb8e1, #0083cc); 
+/* Opera 11.10+ */ 
+background: -o-linear-gradient(top,#3eb8e1, #0083cc);
+}

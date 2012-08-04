@@ -1,0 +1,232 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
+<link href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="{{ STATIC_URL }}css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+<link href="{{ STATIC_URL }}css/style.css" rel="stylesheet" type="text/css" /> 
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+<script src="{{ STATIC_URL }}js/shake.js"></script>
+
+
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+    if({{ is_ipad_login }}){
+        document.location = 'pagemove:twitter_id={{ twitter_id }}'
+    }
+    
+    var deviceAgent = navigator.userAgent.toLowerCase();
+    iPhone = deviceAgent.match('iphone');
+    iPad = deviceAgent.match('ipad');
+
+    if(!(iPad||iPhone)){
+        $('#browserLayout').show();
+    }
+    else{
+
+      window.addEventListener('shake', shakeEventDidOccur, false);
+
+      if(iPad){
+            $('#ipadLayout').show();
+            $.getJSON('/getHistory', {twitter_id: {{ twitter_id }}}, function(data) {
+                $.each(data, function(key, val) {
+                    valString = '' + val;
+                    var array = valString.split(',');
+                    $.each(array, function(index, value) {
+                        if(index < 9){
+                            $('#historyIpad').append('<div id="gray"><a  href="pagemove:open_url=' + value +'">' + value.substr(0, 32) + '</a></div>');
+                        }
+                        return;
+                    });
+                });
+
+            });
+        }
+        if(iPhone){
+          $('#iphoneLayout').show();
+          $.getJSON('/getHistory', {twitter_id: {{ twitter_id }}}, function(data) {
+                $.each(data, function(key, val) {
+                    valString = '' + val;
+                    var array = valString.split(',');
+                    $.each(array, function(index, value) {
+                        if(index < 9){
+                            $('#historyIphone').append('<div id="gray"><a  href="pagemove:open_url=' + value +'">' + value.substr(0, 30) + '</a></div>');
+                        }
+                        return;
+                    });
+                });
+
+            });
+        }
+    }
+
+    $("#openLink").click(function(event) {
+        if(iPad){
+            event.preventDefault();
+            $.getJSON('/getLastPage', {twitter_id: {{ twitter_id }}}, function(data) {
+                $.each(data, function(key, val) {
+                        document.location = 'pagemove:open_url=' + val;
+                });
+            });
+        }
+    });
+
+    $("#openLink2").click(function(event) {
+        if(iPhone){
+            event.preventDefault();
+            $.getJSON('/getLastPage', {twitter_id: {{ twitter_id }}}, function(data) {
+                $.each(data, function(key, val) {
+                        document.location = 'pagemove:open_url=' + val;
+                });
+            });
+        }
+    });
+});
+
+  function submitFormBrowser() {
+    $('#loader').show();
+    $('#overlay').show();
+    $.ajax({type:'POST', url: '/saveUrl/', data:$('#formBrowser').serialize(), success: function(response) {
+        $('#loader').hide();
+        $('#overlay').hide();
+        $('#formBrowser [id=id_url]').val('')
+    }});
+
+    return false;
+  }
+
+  function submitFormIpad() {
+    $.ajax({type:'POST', url: '/saveUrl/', data:$('#formIpad').serialize(), success: function(response) {
+        $('#formIpad [id=id_url]').val('')
+    }});
+
+    return false;
+  }
+
+  function submitFormIphone() {
+    $.ajax({type:'POST', url: '/saveUrl/', data:$('#formIphone').serialize(), success: function(response) {
+        $('#formIphone [id=id_url]').val('')
+    }});
+
+    return false;
+  }
+
+  function shakeEventDidOccur () {
+    $.getJSON('/shakeSend', {twitter_id: {{ twitter_id }}}, function(data) {
+            
+    });
+  }
+     
+
+</script>
+<style type="text/css">
+div.scroll {
+    height: 250px;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+div.scrollNoHeight {
+  height: 100%;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+</style>
+</head>
+<body>
+  
+    <div id="browserLayout" style="display:none">
+        <div class="container">
+            <div class="overlay" id='overlay'></div>
+            <img src="{{ STATIC_URL }}/img/ajax-loader.gif" id="loader" class="center"/>
+             <div class="row">
+                <div class="span12">
+                    <form method='post' id="formBrowser" onsubmit="return submitFormBrowser();">
+            	       {% csrf_token %}
+            	       {{ form.url.errors }}
+                       {{ form.url }}
+                       <br>
+                       <br>
+                       <input id="submit" type='submit' class="btn btn-success btn-large" value="SEND LINK"/>
+                       <a id="openLinkBrowser" class="btn btn-large" style="text-decoration:none;" href='{{ last_url }}' target='_blank'>OPEN LINK</a>
+                   </form>
+               </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="ipadLayout" style="display:none">
+      <div class="container">
+        <br>
+        <br>
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+        <h1>PAGE MOVE</h1>
+        <br>
+        <p>Open the last shared page by clicking the open link button.</p>
+        <br>
+        <p> <a id="openLink" class="btn btn-success btn-large" style="text-decoration:none; padding-top:25px; padding-bottom:25px; padding-right:50px; padding-left:50px;" href='{{ last_url }}' target='_blank'>OPEN LINK</a></p>
+      </div>
+
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="span3">
+          <h2>Send Link</h2>
+           <h3>Paste the link you want to share in the text field and click the send link button.</h3>
+           <br>
+           <form method='post' id="formIpad" onsubmit="return submitFormIpad();">
+            {% csrf_token %}
+            {{ form.url.errors }}
+            {{ form.url }}
+            <br>
+            <br>
+            <input type='submit' class="btn btn-large" src="{{ STATIC_URL }}img/submitapp.png" value="SEND LINK"/>
+           </form>
+        </div>
+        <div class="span7 offset2">
+          <h2>Your History</h2>
+          <div id="historyIpad" class="scroll" ></div>
+       </div>
+      </div>
+      <hr>
+    </div>
+    </div>
+
+    <div id="iphoneLayout" style="display:none">
+      <div class="container scrollNoHeight">
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+        <h1>PAGE MOVE</h1>
+        <br>
+        <p>Open the last shared page by clicking the open link button.</p>
+        <br>
+        <p> <a id="openLink2" class="btn btn-success btn-large" style="text-decoration:none; padding-top:25px; padding-bottom:25px; padding-right:50px; padding-left:50px;" href='{{ last_url }}' target='_blank'>OPEN LINK</a></p>
+      </div>
+
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="span12">
+          <h2>Send Link</h2>
+           <h3>Paste the link you want to share in the text field and click the send link button.</h3>
+           <br>
+           <form method='post' id="formIphone" onsubmit="return submitFormIphone();">
+            {% csrf_token %}
+            {{ form.url.errors }}
+            {{ form.url }}
+            <br>
+            <br>
+            <input type='submit' class="btn btn-large" src="{{ STATIC_URL }}img/submitapp.png" value="SEND LINK"/>
+           </form>
+        </div>
+        <div class="span12">
+          <h2>Your History</h2>
+          <div id="historyIphone"></div>
+       </div>
+      </div>
+      <hr>
+    </div>
+    </div>
+</body>
+</html>

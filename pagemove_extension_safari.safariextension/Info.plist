@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Author</key>
+	<string>Dennis Mårtensson</string>
+	<key>Builder Version</key>
+	<string>7536.10.3</string>
+	<key>CFBundleDisplayName</key>
+	<string>pagemove</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.pagemove.pagemoveextensionsafari</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>Chrome</key>
+	<dict>
+		<key>Global Page</key>
+		<string>glodal.html</string>
+		<key>Popovers</key>
+		<array>
+			<dict>
+				<key>Filename</key>
+				<string>popup.html</string>
+				<key>Height</key>
+				<real>115</real>
+				<key>Identifier</key>
+				<string>popup_pagemove</string>
+				<key>Width</key>
+				<real>300</real>
+			</dict>
+		</array>
+		<key>Toolbar Items</key>
+		<array>
+			<dict>
+				<key>Command</key>
+				<string></string>
+				<key>Identifier</key>
+				<string>pagemove_toolbar</string>
+				<key>Image</key>
+				<string>icon_black.png</string>
+				<key>Label</key>
+				<string>pagemove</string>
+				<key>Palette Label</key>
+				<string>pagemove</string>
+				<key>Popover</key>
+				<string>popup_pagemove</string>
+			</dict>
+		</array>
+	</dict>
+	<key>Content</key>
+	<dict>
+		<key>Scripts</key>
+		<dict>
+			<key>Start</key>
+			<array>
+				<string>injected.js</string>
+			</array>
+		</dict>
+		<key>Whitelist</key>
+		<array>
+			<string>http://pagemove.se/saveUrl</string>
+		</array>
+	</dict>
+	<key>Description</key>
+	<string>Lets you move pages betwind browser and iPhone and iPad</string>
+	<key>ExtensionInfoDictionaryVersion</key>
+	<string>1.0</string>
+	<key>Permissions</key>
+	<dict>
+		<key>Website Access</key>
+		<dict>
+			<key>Include Secure Pages</key>
+			<true/>
+			<key>Level</key>
+			<string>All</string>
+		</dict>
+	</dict>
+	<key>Website</key>
+	<string>http://pagemove.se/</string>
+</dict>
+</plist>

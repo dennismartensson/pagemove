@@ -1,0 +1,76 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="{{ STATIC_URL }}css/style.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="{{ STATIC_URL }}/img/icon.png">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<title>PAGEMOVE</title>
+<script>
+$(document).ready(function() {
+
+	var deviceAgent = navigator.userAgent.toLowerCase();
+    iPhone = deviceAgent.match('iphone');
+    iPad = deviceAgent.match('ipad');
+
+  if('{{twitter_id}}' == 'None'){
+  	$("#bookmarklet").hide();
+  	$("#bookmarkletDiv").hide();
+  	$("#login").show();
+  } else {
+  		if(iPad){
+	  		$("#bookmarklet").hide();
+	  		$("#bookmarkletDiv").hide();
+	        $('#ios').show();
+	    }
+	    if(iPhone){
+	  		$("#bookmarklet").hide();
+	  		$("#bookmarkletDiv").hide();
+	        $('#ios').show();
+	    }
+	}
+});
+</script>
+</head>
+<div id="container">
+	<div id="logo">
+		<img height="150" width="150" src="{{ STATIC_URL }}/img/icon.png" alt="logo missing...">
+		<br>
+		<br>
+		<br>
+		<div class="title">PAGEMOVE</div>
+	</div>
+	<div id="content">
+		<br>
+		<br>
+		<br>
+		<p style="font-size: 1.35em;">
+			INSTALL THE PAGEMOVER BOOKMARKLET TO SHARE ANY PAGE IN YOUR BROWSER WITH A SINGLE CLICK!
+			<br>
+			<br>
+			<a style="display:none" id="login" href="/login?bookmarklet=True">PLEASE LOG IN TO INSTALL THE PAGEMOVE BOOKMARKLET</a>
+			
+			<div id="bookmarkletDiv">DRAG THE LINK TO YOUR BOOKMARKS BAR <a id="bookmarklet" href="javascript:(function(){tid='{{twitter_id}}';is_ipad='False';_pagemove_script=document.createElement('SCRIPT');_pagemove_script.type='text/javascript';_pagemove_script.src='http://pagemove.se/static/js/bookmarklet.js?';document.getElementsByTagName('head')[0].appendChild(_pagemove_script);})();">PAGE MOVE.</a> </div>
+
+			<div id="ios" style="display:none">
+				1. Copy the code from the textbox below. To copy: tap once on the code, tap Select All then tap Copy.
+				<br>
+				<textarea id="ios" rows="4" cols="60">javascript:(function(){tid='{{twitter_id}}';is_ipad='True';_pagemove_script=document.createElement('SCRIPT');_pagemove_script.type='text/javascript';_pagemove_script.src='http://pagemove.se/static/js/bookmarklet.js?';document.getElementsByTagName('head')[0].appendChild(_pagemove_script);})();
+				</textarea>
+				<br>
+				<br>
+				2. Next, click Safari's Add Bookmark icon . Select “Add Bookmark” and without making any changes, bookmark this page by clicking “Save.”
+				<br>
+				<br>
+				3. Now click on the Bookmarks icon to reveal your bookmarks. Navigate to your new bookmark and click “Edit” in the corner of the bookmarks window.
+				<br>
+				<br>
+				4. Next, delete the URL shown and paste the code you copied in step 1: tap the URL shown in the second field, tap "Select All", tap "Paste".
+				<br>
+				<br>
+				5. Tap "Done" on the keyboard, which will return you to the list of bookmarks. Tap "Done" to finish editing bookmarks. Tap "Done" a third time to close the bookmarks list. 
+			</div>
+		<div id="footer">
+		</div>
+	</div>
+
+</div>
+<body>

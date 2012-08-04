@@ -1,0 +1,12 @@
+{
+	"name": "pagemove",
+	"description": "THE PAGEMOVE APP TOGETHER WITH THE PAGEMOVE ADD-ON ENABLES YOU TO EASILY TRANSFER LINKS BETWEEN YOUR COMPUTER AND YOUR IPHONE/IPAD",
+	"launch_path":"/",
+	"icons":{
+		"128":"/img/icon.png"
+	},
+	"developer": {
+		"name":"Dennis Mårtensson",
+		"url": "http://dennis.is"
+	}
+}
